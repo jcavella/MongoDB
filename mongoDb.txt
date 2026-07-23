@@ -1,0 +1,22 @@
+Iniciar el proceso mongod
+sudo systemctl start mongodb
+_________________________________________
+Verifica que MongoDB se haya iniciado correctamente
+sudo systemctl status mongod
+__________________________________________________
+MongoDB se inicie después de un reinicio del sistema
+sudo systemctl enable mongod
+
+________________________________________________________
+Detener el proceso mongod ejecutando el siguiente comando
+sudo systemctl stop mongod
+________________________________________________
+Reiniciar el proceso mongod 
+sudo systemctl restart mongod
+
+__________________________________
+Comienza a utilizar MongoDB
+mongosh
+_______________________________
+Mostrar base de datos
+show databases;
