@@ -1,0 +1,26 @@
+use("jcavellaMongoDB") //Crear o usar la base de datos 
+
+db.Productos.drop() //Borra todos los documentos de la coleccion 
+
+db.Productos.insertMany([
+    {
+        _id: 1,
+        name: "Camisa verde",
+        price: 1500
+    },
+    {
+        _id: 2,
+        name: "Camisa azul",
+        price: 1400
+    },
+    {
+        _id: 3,
+        name: "Camisa blanca",
+        price: 1700
+    },
+    {
+            ordered: false //si hay una colision de _id  si inserta pero no inserta los colisionados
+    }
+])
+
+db.Productos.find() //Listar todos los productos
