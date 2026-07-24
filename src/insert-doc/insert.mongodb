@@ -1,0 +1,13 @@
+use("jcavellaMongoDB")
+
+db.Productos.insertOne({
+    _id: 1,
+    name : "Teclado",
+    price: 3500
+})
+
+db.Productos.insertOne({
+    _id: 2,
+    name : "Monitores",
+    price: 4800
+})
