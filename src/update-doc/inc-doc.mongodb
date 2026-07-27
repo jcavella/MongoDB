@@ -1,0 +1,16 @@
+use("jcavellaMongoDB") //Crear o usar la base de datos 
+
+//Actualizar inc: Incrementar, valores que tiene un numero
+db.Productos.updateOne(
+    //Query
+    {_id: 2},
+    //Change: Incluir los operators set: suma el valor a la cantidad original 350+50 = 400
+    {
+        $inc: {
+          price: 50,
+        }
+        }
+) 
+
+
+db.Productos.find() //Listar todos los productos

@@ -1,0 +1,17 @@
+use("jcavellaMongoDB") //Crear o usar la base de datos 
+
+//Actualizar un producto
+db.Productos.updateOne(
+    //Query
+    {_id: 2},
+    //Change: Incluir los operators set:
+    {
+        $set: {
+          name :"Camisa actualizada",
+          price: 350,
+          tags: ['A','B','C'] //Incluir un nuevo atributo
+        }
+        }
+) 
+
+db.Productos.find() //Listar todos los productos
