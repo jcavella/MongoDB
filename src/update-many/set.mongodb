@@ -1,0 +1,42 @@
+use("sample_training")
+
+//Agrgar un nuevo valor $set
+db.zips.updateMany(
+    //Query
+    {city: "CLEVELAND"},
+    //Update - operator
+    {
+        //Agregar un nuevo atributo
+        $set:{
+            nuevoCampo: "Hola"
+        }
+    }
+)
+
+//Renombrar el atributo: $rename
+db.zips.updateMany(
+    //Query
+    {city: "CLEVELAND"},
+    //Update - operator
+    {
+        //Renombrar un nuevo atributo
+        $rename:{
+            nuevoCampo: "nuevo_Dato"
+        }
+    }
+)
+
+//Eliminar un atributo: $unset
+db.zips.updateMany(
+    //Query
+    {city: "CLEVELAND"},
+    //Update - operator
+    {
+        //Agregar un nuevo atributo
+        $unset:{
+            nuevo_Dato: ""
+        }
+    }
+)
+
+db.zips.find({city: "CLEVELAND"}) 

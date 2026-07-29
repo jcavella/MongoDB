@@ -1,0 +1,19 @@
+use("sample_training")
+
+db.zips.find({city: "CLEVELAND"}) //Traer toda la coleccion o documentos
+
+//ACTUALIZAR VARIOS CAMBIOS
+db.zips.updateMany(
+    //Query
+    {city: "CLEVELAND"},
+    //Update - operator
+    {
+        //Incrementar la poblacion en 1000
+        $inc:{
+            pop: 1000
+        }
+    }
+)
+
+
+db.zips.find({city: "CLEVELAND"}) 
