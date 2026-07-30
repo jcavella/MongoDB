@@ -1,0 +1,13 @@
+use("jcavella_store")
+
+//Actualizar un documento
+db.inventory.updateOne({
+    //dato actualizar 
+    _id:4},
+   {
+    //Agregar un elemento al final del arreglo
+    $push: {
+        tags: "headphone"
+    }
+   }
+)

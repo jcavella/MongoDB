@@ -1,0 +1,3 @@
+use("jcavella_store")
+
+db.inventory.find()

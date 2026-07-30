@@ -1,0 +1,12 @@
+use("jcavella_store")
+
+//Quitar varios elementos de un array
+db.inventory.updateMany({},
+   {
+    //Quitar todos los elemento del arreglo
+    $pull: {
+        tags:{
+            $in: ["book","appliance"]
+        } 
+    }
+   })
