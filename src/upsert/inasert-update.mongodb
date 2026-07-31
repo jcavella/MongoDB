@@ -1,0 +1,39 @@
+use("Upsert_store")
+
+//Verifcar si existe el elemento
+db.iot.updateOne({
+    //Filtro del documento a actualizar
+    senser: "A001",
+    date: "2022-01-03"
+}).count()
+
+
+//Insertar un nuevo documento
+// db.iot.insertOne({
+//     senser: "A001",
+//     date: "2022-01-03",
+//     readings:[1212]
+// })
+
+//Eliminar un operador del inicio o del final
+// db.iot.updateOne({
+//   //Filtro del documento a actualizar
+//     senser: "A001",
+//     date: "2022-01-03"
+// },{
+//     $pop: {
+//         readings: 1 //Eliminar al final, -1 Eliminar el primer elemento
+//     } 
+// })
+
+
+//Actualizar una nueva lectura para la misma fecha
+db.iot.updateOne({
+    //Filtro del documento a actualizar
+    senser: "A001",
+    date: "2022-01-03"
+}, {
+  $push: {
+    readings: 2323
+    }
+  })

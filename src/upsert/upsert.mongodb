@@ -1,0 +1,16 @@
+
+use("Upsert_store")
+
+//Insertar o Actualizar una nueva lectura para la misma fecha: upsert: true
+//No existe crea el registro, existe inserta una nueva lectura 
+db.iot.updateOne({
+    //Filtro del documento a actualizar
+    senser: "A001",
+    date: "2022-01-04"
+}, {
+  $push: {
+    readings: 12345//2323
+    }
+  },{
+    upsert: true
+  })
