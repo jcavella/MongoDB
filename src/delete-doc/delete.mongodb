@@ -1,0 +1,11 @@
+use("jcaDelete_store")
+
+//Eliminar un producto
+//db.products.deleteOne({_id: 1})
+
+//Eliminar varios documentos
+//Eleminar todo los priductos de precio: 100
+db.products.deleteMany ({price: 100})
+
+//Eliminar todoslos documentos de la coleccion
+//db.products.drop();

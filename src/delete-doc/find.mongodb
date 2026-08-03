@@ -1,0 +1,3 @@
+use("jcaDelete_store")
+
+db.products.find()
