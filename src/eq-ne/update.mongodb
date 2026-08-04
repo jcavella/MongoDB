@@ -1,0 +1,12 @@
+use("jca_eq_ne_store")
+//Actualizar valor que no es igual a 20, incremente en 10
+db.inventory.updateMany(
+    //Query - operators
+    {qty: {$ne: 20} },
+    //Update 
+    {  
+        $inc:{
+        qty: 10
+     }
+    }
+)

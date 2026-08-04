@@ -1,0 +1,20 @@
+use("jca_eq_ne_store")
+
+//$eq. Implicito
+//Todas las qty igual a 20
+//db.inventory.find({qty: 20})
+
+//forma implicita
+//db.inventory.find({qty:{$eq: 20}})
+
+//Busqueda de subdocuentos
+//db.inventory.find({"item.name": "ab"})
+
+//Buscar codigo
+//db.inventory.find({"item.code": "123"})
+
+//=================================================
+//$ne. no es igual
+
+//Busar elementos que no son igual a 20
+db.inventory.find({qty: {$ne: 20} })
