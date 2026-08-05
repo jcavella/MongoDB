@@ -1,0 +1,31 @@
+use("jca_operators_store")
+
+//Using 
+//$gt o mayor que >
+//$gte o mayor o igual  >=
+
+//Documentos con qty mayor a 20 
+//db.inventory.find({qty:{$gt: 20}})
+
+//Documentos con qty mayor o igual 20 
+//db.inventory.find({qty:{$gte: 20}})
+
+//$lt. Menor que
+//$lte. Menor o igual
+
+//Documentos con qty menor a 20 
+//db.inventory.find({qty:{$lt: 20}})
+
+//Documentos con qty menor o igual 20 
+//db.inventory.find({qty:{$lte: 20}})
+
+//Combinar operadores
+//qty >=25  y  <= 35
+
+//db.inventory.find({qty:{$gte: 25, $lte: 35}})
+
+//item.code = 123 
+db.inventory.find({
+    "item.code": "123",
+    qty:{$gte:20, $lte:25}
+})
