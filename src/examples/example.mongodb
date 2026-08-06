@@ -1,0 +1,15 @@
+use("Upsert_store")
+
+//Crear actualizacion
+db.iot.updateMany(
+    //Query, los datos a actualizar
+    {sensor: "A001"},
+    //update. Quitar datos de un array, mayor o idual a $gte
+    {
+        $pull:{
+            readings:{$gte:3}
+        }
+    }
+)
+
+//db.iot.find()
