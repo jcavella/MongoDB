@@ -1,0 +1,25 @@
+use("regex_store")
+
+//Buscar por todo el texto que coincida en la descripcion
+//db.inventory.find({"item.description":"Single line description."})
+
+//$regex: Patron de expresiones regulares, inserta con /patron/
+//Contengan la palabra line
+//db.inventory.find({"item.description": { $regex:/line/}})
+
+//Poner una "i" al final indica que se haga la búsqueda indiferentemente si esta en minúscula o mayúscula
+//db.inventory.find({"item.description": { $regex:/LINE/i}})
+
+//Buscar un texto que TERMINEN CON LA PALABRA LINE: incluye al final $
+//db.inventory.find({"item.description": { $regex:/line$/i}})
+
+//Buscar un texto que inicie con LA PALABRA LINE: incluye al inicio ^
+//db.inventory.find({"item.description": { $regex:/^single/i}})
+
+//Buscar un texto que inicie con una m
+//db.inventory.find({"item.description": { $regex:/^m/i}})
+
+//operador "m" para buscar en todos los documentos, aunque tengan saltos de linea
+db.inventory.find({"item.description": { $regex:/^s/im}})
+
+
