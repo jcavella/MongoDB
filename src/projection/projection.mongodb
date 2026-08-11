@@ -1,0 +1,10 @@
+use("sample_training") //Base datos a conectar
+
+db.trips.find(
+    //Query. Filtro aplicar
+    //Sin filtro{}, trae todos los documentos
+    //Valores mayor o igual a 500
+    {tripduration:{$gte:100}},
+    //projection: Campos a mostrar
+    {tripduration:1,usertype:1}
+).sort({tripduration:1}) //Odenar informacion descendente
