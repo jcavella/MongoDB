@@ -1,0 +1,46 @@
+use("sample_training")
+
+//Operadores logicos
+
+//And implicita
+//Auditorias del sector: y result:
+db.inspections.find({
+    sector: "Tax Preparers - 891",
+    result: "Unable to Locate"
+}).count()
+
+
+//And explicita: $and:[{campo: valor}, {campo2:valor}]
+//Auditorias del sector: y result:
+ /*db.inspections.find({
+   $and: [
+    { sector: "Tax Preparers - 891",
+    result: "Unable to Locate"}
+   ]
+}).count()*/
+
+//=================================================================================
+//Deben declarar de forma explicita los siguientes operadores logicos
+//$or:[{campo: valor}, {campo2:valor}]
+/*db.inspections.find({
+    $or:[
+        {sector: "Tax Preparers - 891"},
+        {result: "Unable to Locate"}
+    ]
+})*/
+
+//$nor. No incluye los valores
+//$nor:[{campo: valor}, {campo2:valor}]
+/* db.inspections.find({
+    $nor:[
+        {sector: "Tax Preparers - 891"},
+        {result: "Unable to Locate"}
+    ]
+}) */
+
+
+//Operador de negacion. $not. No recibe un array
+//Aplica directamente a un atributo, aplicando la negacion
+db.inspections.find({
+    result: {$not: {$regex: /Unable to Locate/}}
+})

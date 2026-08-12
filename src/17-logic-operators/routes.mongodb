@@ -1,0 +1,31 @@
+use("sample_training")
+
+//Collection:routes
+//Documentos se encuentra en la collection
+
+//Buscar los vuelos para EL AIROPLANO = E70
+//db.routes.find({airplane:"E70"})
+
+//Aeropuerto origen o destino corresponda Bogota
+/* db.routes.find({
+    $or:[
+        {dst_airport: "BOG"},
+        {src_airport: "BOG"}
+    ]
+}) */
+
+//Consultar si el vuelo E70 y destino es Bogota
+/* db.routes.find({
+    airplane:"E70",
+    dst_airport: "BOG"
+}) */
+
+//unir $and y $or
+//Consultar vuelo E70 a llegado o salido de bogota
+db.routes.find({
+    airplane:"E70",
+    $or:[
+        {dst_airport: "BOG"},
+        {src_airport: "BOG"}
+    ]
+}).count()
