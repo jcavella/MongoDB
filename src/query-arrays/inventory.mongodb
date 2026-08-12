@@ -1,0 +1,3 @@
+use("jcavella_store") //Base de datos
+
+db.inventory.find()//Consular la collection

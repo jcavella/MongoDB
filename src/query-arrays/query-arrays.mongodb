@@ -1,0 +1,41 @@
+use("jcavella_store") //Base de datos
+
+//$in. Incluir elementos. Utiliza para objetos y valores expecificos
+//Obtener dentro del array los elements
+// db.inventory.find(
+//     //Query. valores que incluya 20 o 25
+//     {
+//         qty:{$in:[20,25]}
+//     })
+
+//Buscar dentro un array elementos del tags que incluya:book o electronics
+//db.inventory.find({tags: {$in:["book","electronics"]}})
+
+//$nin: no incluir elementos
+//no incluir los elementos 20 o 25
+//db.inventory.find({qty:{$nin:[20,25]}})
+
+//Buscar dentro un array elementos del tags que no incluya:book o electronics
+//db.inventory.find({tags: {$nin:["book","electronics"]}})
+
+
+//Elementos que solo funcionan con arrays
+//$all: que contenga elemento1 y elemento2,
+//sin considerar el orden de los elementos
+//db.inventory.find({tags:{$all:["book","school"]}})
+
+//$size: el array tenga 2 elementos
+//db.inventory.find({tags:{$size:2}})
+
+//$elemenMatch:coincida exactamente los que contienen un elemento
+//Documentos con elemento del array product = xyx
+//db.survey.find({results:{$elemMatch:{product:"xyz"}}})
+
+//Documentos con elemento del array product = xyx 
+// y score mayor o igual a 7
+db.survey.find({
+    results:{
+        $elemMatch:{
+            product:"xyz",
+            score:{$gte:7}
+        }}})
