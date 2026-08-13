@@ -1,0 +1,20 @@
+use("expresive_store")
+
+//gastos del presupuesto mayor o igual 100
+//db.monthlyBudget.find({spent:{$gte:100}})
+
+//Expresive-operator: $expr
+//$campo, seleccionar un campo en especial
+/*db.monthlyBudget.find({
+    $expr:{
+        $gte: ["$spent",100]
+    }
+})*/
+
+
+//$expr:Comparar dos campos, sin valor expecifico
+db.monthlyBudget.find({
+    $expr:{
+        $gte: ["$spent","$budget"]
+    }
+})
