@@ -1,0 +1,7 @@
+use("sample_training")
+
+//mayor o igual a 100
+db.zips
+.find({pop: {$gte:100}})//Mayor o igual a 100  
+.sort({pop:-1}) //ordenar por 1. Acendente(0- 10, a-z ), -1 Descendente(10-0, z-a)
+.limit(2) //Cantidad de documentos a mostrar

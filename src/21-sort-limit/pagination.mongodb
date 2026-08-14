@@ -1,0 +1,7 @@
+use("sort_limit_store")
+
+//aplica paginacion
+db.categories
+.find()
+.skip(4)
+.limit(4)
