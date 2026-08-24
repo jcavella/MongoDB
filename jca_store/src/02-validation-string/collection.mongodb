@@ -2,6 +2,7 @@ use("CustomersDataStorage")
 
 //Validar los atributos para los documentos creados en la collection
 //strings JSON Schema
+//Integridad de los datos 
 db.createCollection('users', {
     validator: {
         $jsonSchema: {
