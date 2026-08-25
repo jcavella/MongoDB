@@ -1,0 +1,47 @@
+use("CustomersDataStorage")
+
+//Validar los atributos para los documentos creados en la collection
+//strings JSON Schema
+//Integridad de los datos 
+db.createCollection('users', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['firstName', 'lastName', 'email', 'password', 'gender','role'], // Corrección aquí
+            properties: {
+                firstName: {
+                    bsonType: 'string'
+                },
+                lastName: {
+                    bsonType: 'string'
+                },
+                email: {
+                    bsonType: 'string',
+                    pattern: "^[A-Za-z\\d._%+-]+@[A-Za-z\\d.-]+\\.[A-Za-z]{2,}$" // Ajuste menor al patrón
+                },
+                password: {
+                    bsonType: 'string',
+                    pattern: "^.{16,40}$" // Ya está correcto
+                },
+                age: {
+                    bsonType: 'number',
+                    minimum: 18, //Edad minima
+                    maximum: 99 //Edad maxima
+                },
+                isSingle:{
+                    bsonType: 'bool'
+                },
+                role:{
+                    enum:['customer', 'seller', 'admin'] //Opciones disponibles acotadas
+                },
+                nation: {
+                    bsonType: 'string'
+                },
+                gender: {
+                    bsonType: 'bool',
+                    description : " Please Provide 1 if it is Male\n and 0 is Female"
+                }
+            }
+        }
+    }
+})

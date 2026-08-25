@@ -1,0 +1,16 @@
+use("CustomersDataStorage")
+
+//Crear un documento en la collection user
+//Crear integridad de la informacion, a partir de collection.mongodb
+db.users.insertOne( { 
+
+    firstName : "Juan Carlos",
+    lastName :  "Avella",
+    email     :  "jcavella@gmail.com",
+    password  : "Mcarlosgarcia13579",
+    age       : 24,
+    nation    : "Colombia",
+    gender    :  true ,
+    role      : "admin"
+
+})
