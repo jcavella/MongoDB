@@ -1,0 +1,50 @@
+use("CustomersDataStorage")
+
+//Consultar la informacion de las colecciones
+db.getCollectionInfos()
+
+//Actualizar la coleccion sin necesidad de borrar
+db.runCommand({
+    collMod: 'users',
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['firstName', 'lastName', 'email', 'password', 'gender','role'], // Corrección aquí
+            additionalProperties:true, //No permitir incluir propiedades adicionales, al insertar un documento
+            properties: {
+                firstName: {
+                    bsonType: 'string'
+                },
+                lastName: {
+                    bsonType: 'string'
+                },
+                email: {
+                    bsonType: 'string',
+                    pattern: "^[A-Za-z\\d._%+-]+@[A-Za-z\\d.-]+\\.[A-Za-z]{2,}$" // Ajuste menor al patrón
+                },
+                password: {
+                    bsonType: 'string',
+                    pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})" // expresion regula - regex
+                },
+                age: {
+                    bsonType: 'number',
+                    minimum: 18, //Edad minima
+                    maximum: 99 //Edad maxima
+                },
+                isSingle:{
+                    bsonType: 'bool'
+                },
+                role:{
+                    enum:['customer', 'seller', 'admin'] //Opciones disponibles acotadas
+                },
+                nation: {
+                    bsonType: 'string'
+                },
+                gender: {
+                    bsonType: 'bool',
+                    description : " Please Provide 1 if it is Male\n and 0 is Female"
+                }
+            }
+        }
+    }
+})
