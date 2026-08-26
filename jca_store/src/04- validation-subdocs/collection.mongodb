@@ -1,0 +1,39 @@
+use("CustomersDataStorage")
+
+//Validar los atributos para los documentos creados en la collection
+//strings JSON Schema
+//Integridad de los datos 
+db.createCollection('products', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['name'], 
+            properties: {
+                name: {
+                    bsonType: 'string'
+                },
+                sizes: {
+                    bsonType: 'array',
+                    minItems: 1, //Cantidad mnima de items
+                    uniqueItems: true, //valores unicos por dato 
+                    items:{
+                        bsonType: 'string'
+                    }  //Tipos de datos del array 
+                },  //Validar array
+                category:{ //Validar el subdocumento
+                    bsonType: 'object',
+                    required: ['name'],
+                    properties: {
+                        name: {
+                                bsonType: 'string'
+                            },
+                        image: {
+                                bsonType: 'string'
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+})

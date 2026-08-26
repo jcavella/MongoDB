@@ -1,0 +1,13 @@
+use("CustomersDataStorage")
+
+//Crear un documento en la collection user
+//Crear integridad de la informacion, a partir de collection.mongodb
+db.products.insertOne( { 
+
+    name : "Camiseta",
+    sizes:['L','M'], //Array
+    category: { //Subdocumento
+        name: "category",
+        image: "UrlImagen"
+    }
+})
