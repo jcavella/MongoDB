@@ -1,0 +1,21 @@
+use("CustomersDataStorage")
+
+//Crear un documento en la collection user, embebido con subdocumentos
+db.stores.insertOne( { 
+
+    storeId: 'ST001',
+    name: 'Jcavella Store',
+    address: 'Calle 4 1a-87'
+})
+
+//Crear nueva collection referenciada
+db.stores_details.insertOne( { 
+
+    storeId: 'ST001',  //Relaciona los documentos 
+    description:'text text text text ',
+    manager: {
+        email: 'amdin@gmail.com',
+        cellphone: '3102552542'
+    }
+
+})

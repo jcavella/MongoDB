@@ -1,0 +1,18 @@
+use("CustomersDataStorage")
+
+//Consultar subdocumento, storeId
+//db.stores.findOne({storeId: 'ST001'})
+//db.stores_details.findOne({storeId: 'ST001'})
+
+//Relacionar los documentos en una sola consulta
+//Agregation framework. $lookup
+db.stores.aggregate([
+    {
+        $lookup: {
+          from: 'stores_details', //
+          localField: 'storeId',
+          foreignField: 'storeId',
+          as: 'detail'
+        }
+    }
+])
