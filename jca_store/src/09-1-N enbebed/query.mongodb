@@ -1,0 +1,6 @@
+use("CustomersDataStorage")
+
+//Consultar subdocumento, la ciudad 
+//db.orders.find()
+
+db.orders.find({"items.qty":1})
