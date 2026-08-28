@@ -1,0 +1,6 @@
+use("CustomersDataStorage")
+
+//Consultar subdocumento, la ciudad 
+db.users.find({
+    "address.city": "Sogamoso"
+})
