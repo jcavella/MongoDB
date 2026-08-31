@@ -1,0 +1,16 @@
+use("CustomersDataStorage")
+
+//Consultar a orden en especifico 
+db.orders.aggregate([
+    {$match: {
+      _id:ObjectId('6a9204c9d369f37a45989703')
+    }},
+    {
+        $lookup: {
+          from: 'users',
+          localField: 'user_id',
+          foreignField: '_id',
+          as: 'user'
+        }
+    }
+])

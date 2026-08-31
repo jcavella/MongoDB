@@ -1,0 +1,21 @@
+use("CustomersDataStorage")
+
+//Crear un documento en la collection 1:N embebido
+db.orders.insertOne( { 
+    user_id: ObjectId('6a91ebeab604a78d4b6172a5'),
+    date: '2026-10-12',
+    //Relacion 1:N. Representa un array de objetos
+    //Detalle de la compra
+    items:[
+        {
+            name: 'Camiseta',
+            price: 120,
+            qty: 1
+        },
+        {
+            name: 'Pantalon',
+            price: 200,
+            qty: 2
+        }
+    ]
+})

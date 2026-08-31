@@ -1,0 +1,16 @@
+use("CustomersDataStorage")
+
+//Consultar las ordeenes del usuario
+db.orders.find({user_id: ObjectId('6a91ebeab604a78d4b6172a5')})
+
+//Consultar la informacion relacionada, utilizando aggregate
+db.orders.aggregate([
+    {
+        $lookup: {
+          from: 'users',
+          localField: 'user_id',
+          foreignField: '_id',
+          as: 'user'
+        }
+    }
+])
