@@ -1,0 +1,19 @@
+use("CustomersDataStorage")
+
+//Consultar los productos
+db.products.find()
+
+//Consultar stores
+db.stores.find()
+
+//consultar agrregate con $lookup, relacion N:N
+db.stores.aggregate([
+    {
+        $lookup: {
+          from: 'products',//collection,
+          localField: 'products_ids', //array de referencias
+          foreignField: '_id',
+          as: 'products'
+        }
+    }
+])

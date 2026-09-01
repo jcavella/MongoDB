@@ -1,0 +1,23 @@
+use("CustomersDataStorage")
+
+//Crear PRODUCTOS N:N
+db.stores.insertMany( [
+    { 
+        name: 'Store 1' ,
+        //Lista de productos
+        products_ids: 
+        [
+            ObjectId('6a8e1cea313d058acd95af2a'),
+            ObjectId('6a96f81c69d3f8ce6c5f0101')
+        ]
+    },
+    { 
+        name: 'Store 2' ,
+        products_ids: 
+        [
+            ObjectId('6a96f81c69d3f8ce6c5f0100'),
+            ObjectId('6a96f81c69d3f8ce6c5f0101'),
+            ObjectId('6a96f81c69d3f8ce6c5f0102')
+        ]
+    }
+])
