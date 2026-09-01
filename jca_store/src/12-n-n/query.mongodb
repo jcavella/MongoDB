@@ -1,0 +1,24 @@
+use("CustomersDataStorage")
+
+//Consultar los productos
+db.products.find()
+//ObjectId('6a96f81c69d3f8ce6c5f0100')
+
+//Consultar almacenes
+db.stores.find()
+//ObjectId('6a96fa87fb2cb6e5c1d02650')
+
+
+//Consultar los store donde sencuentra el producto
+//consultar agrregate con $lookup, relacion N:N
+db.products.aggregate([
+    {
+        $lookup: {
+          from: 'stores',//collection,
+          localField: 'stores_ids', //array de referencias
+          foreignField: '_id',
+          as: 'stores'
+        }
+    }
+])
+

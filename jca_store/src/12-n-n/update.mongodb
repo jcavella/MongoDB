@@ -1,0 +1,16 @@
+use("CustomersDataStorage")
+
+//Actualizar un producto, incluyendo los stores donde se encuentra
+db.products.updateOne(
+    //Consultar el producto a actualizar
+    {_id: ObjectId('6a96f81c69d3f8ce6c5f0100')},
+    //Datos a modificar
+    {
+        $set: {
+            //Agregar una nueva variable}
+            stores_ids:[
+                ObjectId('6a96fa87fb2cb6e5c1d02650')                
+            ]
+        }
+    }
+)
