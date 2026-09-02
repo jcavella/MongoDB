@@ -1,0 +1,25 @@
+use("CustomersDataStorage")
+
+//Crear un documento aplicando desnormalizacion, repitiendo datos dep producto como 
+//name, price, para evitar aggregate al realizar la consulta por tener la informacion del producto 
+//mantener la informacion historica
+db.orders.insertOne( { 
+    user_id: ObjectId('6a91ebeab604a78d4b6172a5'),
+    date: '2026-10-12',
+    //Relacion 1:N. Representa un array de objetos
+    //Detalle de la compra
+    items:[
+        {
+            name: 'Camiseta',
+            price: 45,
+            qty: 1,
+            product_id: ObjectId('6a96f81c69d3f8ce6c5f0100')
+        },
+        {
+            name: 'Pantalon',
+            price: 12,
+            qty: 2,
+             product_id: ObjectId('6a96f81c69d3f8ce6c5f0102')
+        }
+    ]
+})
