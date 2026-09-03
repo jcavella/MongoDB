@@ -1,0 +1,3 @@
+use("CustomersDataStorage")
+
+db.orders.findOne({_id:ObjectId('6a986ea705a42da7a884c22d')})

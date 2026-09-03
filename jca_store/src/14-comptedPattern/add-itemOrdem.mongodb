@@ -1,0 +1,25 @@
+//6a91ebeab604a78d4b6172a5
+use("CustomersDataStorage")
+
+//Agregar dinamicamente un producto a la orden , utilizando un update
+db.orders.updateOne(
+    {_id: ObjectId('6a986ea705a42da7a884c22d')},
+    //Agregar un nuevo elemento al array 
+    {
+        $push:
+        {
+            items:{                
+                    name: 'Pantalon',
+                    price: 12,
+                    qty: 2,
+                    product_id: ObjectId('6a96f81c69d3f8ce6c5f0102')
+        
+            }
+        },
+        //Incrementador
+        $inc:{
+            total: 12*2
+        }
+    }
+)
+

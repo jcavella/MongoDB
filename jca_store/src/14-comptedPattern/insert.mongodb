@@ -1,0 +1,9 @@
+use("CustomersDataStorage")
+
+//Agregar de forma dinamica los items, con total 0
+db.orders.insertOne( { 
+    user_id: ObjectId('6a91ebeab604a78d4b6172a5'),
+    date: '2026-10-12',
+    total: 0,
+    items:[]
+})
